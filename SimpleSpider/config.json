@@ -1,0 +1,42 @@
+{
+    "url_rule": {
+        "url_base": "[P0]",
+        "url_para_rule": [{
+            "priority": ""
+        }, {
+            "u_func": ["TEXT_REPLACE", "./res/zt.txt"]
+        }]
+    },
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36",
+        "Cookie": "",
+        "Referer": "",
+        "Accept-Encoding": "gzip, deflate, br"
+    },
+    "post_form": {
+    },
+    "field_rule": [{
+            "field_name": "*title",
+            "field_handle_rule": ["Xpath", "//section[@id=\"feed_1\"]/a//h2/text()"],
+            "field_data_handle": []
+        },
+        {
+            "field_name": "*url",
+            "field_handle_rule": ["Xpath", "//section[@id=\"feed_1\"]/a/@href"],
+            "field_data_handle": []
+        },
+        {
+            "field_name": "id",
+            "field_handle_rule": ["AUTO_NUM_num", "0", "1000", "1", "3"],
+            "field_data_handle": []
+        }
+    ],
+    "save_data": {
+        "object": "json",
+        "obj_para": ["./res.json"]
+    },
+    "ex_attr": {
+        "cache_page": true,
+        "auto_add_url": false
+    }
+}
