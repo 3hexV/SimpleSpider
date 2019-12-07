@@ -28,7 +28,7 @@
 依次按照上述软件，并完成环境配置。
 2. 安装依赖
 打开爬虫根目录env_int文件夹，安装依赖库：
-	在windows平台上，可以直接运行env_ini.bat文件，或者使用（liunx平台上同样适用这个命令）。
+    在windows平台上，可以直接运行env_ini.bat文件，或者使用（liunx平台上同样适用这个命令）。
 	```cmd
 	pip install -r pack.txt
 	```
@@ -278,50 +278,73 @@ post请求参数
 | 文件专用爬虫 |:heavy_check_mark: | :heavy_multiplication_x: 使用ex属性的第2个参数实现url处理 |  :heavy_multiplication_x: 强制为一个F_FILE   |
 | 图片专用爬虫 | :heavy_check_mark: | :heavy_multiplication_x: 使用ex属性的第2个参数实现url处理 |   :heavy_multiplication_x: 强制为一个F_IMG   |
 
-**:fa-exclamation-circle: 数据处理方式是，单向的、流程式的**。
+数据处理方式是，单向的、流程式的**。
+
 `处理方式1->处理方式2->处理方式3`
-	1. 数据提取方式：
-		1. **["xpath","xpath规则"]**
+
+
+1. 数据提取方式：
+
+	1. **["xpath","xpath规则"]**
+	
 ```
 ["xpath", "//div[@class=\"content\"]//p/text()"]
 ```
-		2. **["re","正则表达式","拼接规则"]**
+	
+	2. **["re","正则表达式","拼接规则"]**	
+	
 ```
 ["re","title:(.\*?)\"\s\*author:(.\*?)\"", "[P1]--[P2]"]
 ```
+
 (每一个[Pn]代表一个()匹配到结果，拼接规则为空，爬虫会依据spiderBaseConfig.ini中的ReDefLinkSymbol参数完成拼接)
-		3. **["json","参数1"..."参数n"]**
+
+	3. **["json","参数1"..."参数n"]**
+	
 ```
 ["json", "data", 2, "desc", "name"]
 ```
+
 等价于aim_data["data"][2]["desc"]["name"]的字典选择方式
 这里参数为字符时表示键值，为数值时表示该数组的第n个。连续向下选择。
-	2. 数据处理方式：
-		1. **["text_replace", "替换前字符串", "替换后的字符串"]**
+
+2. 数据处理方式：
+
+	1. **["text_replace", "替换前字符串", "替换后的字符串"]**
+	
 ```
 ["text_replace", "\n", " "]
 ```
 将数据中的\n全部取出。如果数据为list（列表类型)，那么会**根据spiderBaseConfig.ini中的DataListToStr参数**来决定，是否先转为字符串，处理；还是遍历列表处理每个字符串。
-		2. **["text_sub", "开始字符串", "结尾字符串"(包含本身)]**
+
+	2. **["text_sub", "开始字符串", "结尾字符串"(包含本身)]**
+	
 ```
 ["text_sub", "start", "stop"]
 ```
 这里如果开始字符串为空，表示从头开始；结尾字符串为空，表示到尾结束
 **这里的提取，会包含结尾字符串。**
-		3. **["list_to_str","分隔符"]**
+
+	3. **["list_to_str","分隔符"]**
+	
 ```
 ["list_to_str", "\n"]
 ```
 将列表转为字符串，并以分割符，分割每个列表数据。（一般用于正文保留分段信息）
-		4. **["text_strip","l|r|lr"]**
+
+	4. **["text_strip","l|r|lr"]**
+	
 ```
 ["text_strip", "l"]
 ```
 去除文本的左边空格，同理，r代表右边；lr代表左右两边。
-		5. **["re_handle","正则表达式","拼接规则"]**
+
+	5. **["re_handle","正则表达式","拼接规则"]**
+	
 和数据提取中的re一样，只是名称不一样。
 
 例如使用以下配置:
+
 ```
 "field": {
         "*title": [
