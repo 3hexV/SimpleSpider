@@ -278,7 +278,7 @@ post请求参数
 | 文件专用爬虫 |:heavy_check_mark: | :heavy_multiplication_x: 使用ex属性的第2个参数实现url处理 |  :heavy_multiplication_x: 强制为一个F_FILE   |
 | 图片专用爬虫 | :heavy_check_mark: | :heavy_multiplication_x: 使用ex属性的第2个参数实现url处理 |   :heavy_multiplication_x: 强制为一个F_IMG   |
 
-数据处理方式是，单向的、流程式的**。
+**数据处理方式是，单向的、流程式的**。
 `处理方式1->处理方式2->处理方式3`
 
 	数据提取方式：
@@ -298,7 +298,9 @@ post请求参数
 	数据处理方式：
 		1.["text_replace", "替换前字符串", "替换后的字符串"]
 		["text_replace", "\n", " "]
-		将数据中的\n全部取出。如果数据为list（列表类型)，那么会**根据spiderBaseConfig.ini中的DataListToStr参数**来决定，是否先转为字符串，处理；还是遍历列表处理每个字符串。
+		将数据中的\n全部取出。如果数据为list（列表类型)，
+		那么会**根据spiderBaseConfig.ini中的DataListToStr参数**来决定，
+		是否先转为字符串，处理；还是遍历列表处理每个字符串。
 
 		2.["text_sub", "开始字符串", "结尾字符串"(包含本身)]
 		["text_sub", "start", "stop"]
