@@ -125,6 +125,7 @@ save(1, mongodb(spiderHub.dataHub0))
 ## 5.实例
 
 ### 1.某易新闻爬取
+[实例1](http://39.107.227.91/2019/12/07/simplespider-v2-0%e7%88%ac%e5%8f%96%e6%9f%90%e6%98%93%e6%96%b0%e9%97%bb/#more-854)
 
 ### 2.某库图片下载
 
