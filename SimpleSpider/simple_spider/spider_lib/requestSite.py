@@ -71,7 +71,7 @@ class RequestSite:
                 encoding = self.forceEncoding
                 self.Print('[~]使用强制编码规则 {}'.format(self.forceEncoding))
 
-            res = respond.content.decode(encoding=encoding)
+            res = respond.content.decode(encoding, "ignore")
 
             # 判断是否缓存网页
             if self._cacheSitePage:
