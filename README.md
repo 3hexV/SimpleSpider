@@ -212,7 +212,7 @@ save(1, mongodb(spiderHub.dataHub0))
 }
 ```
 ----
-:fa-exclamation: **注意**：由于这里使用json文件配置爬虫的工作信息，所以里面的部分符号，需要转义。
+:heavy_exclamation_mark: **注意**：由于这里使用json文件配置爬虫的工作信息，所以里面的部分符号，需要转义。
 例如：**在引号[ " ]，反斜杠[ \ ]，小括号[ ( ]等前面加上一个反斜杠[ \ ]**。具体的和正则的匹配使用的转义方法差不多。
 
 - **Stype**:
@@ -246,7 +246,7 @@ URL的拼接规则。格式：["url模板",[具体的拼接方法]]。
 "cookie":"BD_UPN=12314753;BDUSS=HY2LW04cUVabzFxZ3NGLTNDSWdvcThrdFJVdlAxQ3NmRVNDVTIwblZmUkxYQVZAEvP3V1Lz91da;"
 }
 ```
-:fa-tag: **如果使用自定义的UA库。请在spiderBaseConfig.ini配置中将UA置为2，并将自定义的UA库复制到/simple_spider/res/UA.txt中。**
+:triangular_flag_on_post: **如果使用自定义的UA库。请在spiderBaseConfig.ini配置中将UA置为2，并将自定义的UA库复制到/simple_spider/res/UA.txt中。**
 - **post_data**：
 post请求参数
 例如
@@ -266,15 +266,15 @@ post请求参数
 ]
 ```
 **其中的对于字段名，如果在字段名前加上 * (星号)，则表示该字段不能为空，在数据提取时，该字段为空，爬虫会丢弃该条记录。**
-:fa-tag: 对于专用爬虫，他们字段名固定，并且只能为一个。详细如下：
+:triangular_flag_on_post: 对于专用爬虫，他们字段名固定，并且只能为一个。详细如下：
 
 | 爬虫类型     |  数据提取  |                  数据处理                   | 是否可以自定义字段名和字段数量 |
 | :----------- | :--------: | :-----------------------------------------: | :----------------------------: |
-| 一般通用爬虫 | :fa-check: |                 :fa-check:                  |           :fa-check:           |
-| URL专用爬虫  | :fa-check: | :fa-times: 使用ex属性的第2个参数实现url处理 |    :fa-times: 强制为一个URL    |
-| 文本专用爬虫 | :fa-check: |                 :fa-check:                  |   :fa-times: 强制为一个TEXT    |
-| 文件专用爬虫 | :fa-check: | :fa-times: 使用ex属性的第2个参数实现url处理 |  :fa-times: 强制为一个F_FILE   |
-| 图片专用爬虫 | :fa-check: | :fa-times: 使用ex属性的第2个参数实现url处理 |   :fa-times: 强制为一个F_IMG   |
+| 一般通用爬虫 | :heavy_check_mark: |     :heavy_check_mark:  |     :heavy_check_mark:        |
+| URL专用爬虫  |:heavy_check_mark:| :heavy_multiplication_x: 使用ex属性的第2个参数实现url处理 |    :heavy_multiplication_x: 强制为一个URL    |
+| 文本专用爬虫 | :heavy_check_mark: |           :heavy_check_mark:   |   :heavy_multiplication_x: 强制为一个TEXT    |
+| 文件专用爬虫 |:heavy_check_mark: | :heavy_multiplication_x: 使用ex属性的第2个参数实现url处理 |  :heavy_multiplication_x: 强制为一个F_FILE   |
+| 图片专用爬虫 | :heavy_check_mark: | :heavy_multiplication_x: 使用ex属性的第2个参数实现url处理 |   :heavy_multiplication_x: 强制为一个F_IMG   |
 
 **:fa-exclamation-circle: 数据处理方式是，单向的、流程式的**。
 `处理方式1->处理方式2->处理方式3`
@@ -344,13 +344,14 @@ post请求参数
 
 | 爬虫类型     | 文件/图片的后缀(类型) | URL拼接规则 |  强制编码  |
 | :----------- | :-------------------: | :---------: | :--------: |
-| 一般通用爬虫 |      :fa-times:       | :fa-times:  | :fa-check: |
-| URL专用爬虫  |      :fa-check:       | :fa-check:  | :fa-check: |
-| 文本专用爬虫 |      :fa-times:       | :fa-times:  | :fa-check: |
-| 文件专用爬虫 |      :fa-check:       | :fa-check:  | :fa-check: |
-| 图片专用爬虫 |      :fa-check:       | :fa-check:  | :fa-check: |
+| 一般通用爬虫 |      :heavy_multiplication_x:       | :heavy_multiplication_x:  | :heavy_check_mark: |
+| URL专用爬虫  |     :heavy_check_mark: | :heavy_check_mark:  | :heavy_check_mark: |
+| 文本专用爬虫 |      :heavy_multiplication_x:       | :heavy_multiplication_x:  | :heavy_check_mark: |
+| 文件专用爬虫 |      :heavy_check_mark:       | :heavy_check_mark:  | :heavy_check_mark: |
+| 图片专用爬虫 |      :heavy_check_mark:      | :heavy_check_mark: | :heavy_check_mark: |
 
-:fa-check: 表示有效控制 :fa-times: 表示无效控制
+:heavy_check_mark: 表示有效控制 :heavy_multiplication_x:  表示无效控制
+
 
 - **flow_input**:
 爬虫的输入流，用于连接爬虫，形成爬虫的工作流程。
@@ -359,14 +360,14 @@ post请求参数
 当为link时，url不起作用，失效。url来源于前一个爬虫的flow_output
 - **"flow_output"**:
 爬虫的输出流，用于输出爬虫的爬取数据的**某一类数据**，作为**下一个爬虫的url**输入(**flow_input必须置为"link"，才可以接收到**)。例如：title_url
-:fa-tag: 这个属性对不同爬虫的，作用范围如下表：
+:triangular_flag_on_post:这个属性对不同爬虫的，作用范围如下表：
 
 | 爬虫类型     | flow_output | other                                   |
 | :----------- | :---------: | :-------------------------------------- |
-| 一般通用爬虫 | :fa-check:  | 输出用户配置的字段名（请输出url一类的） |
-| URL专用爬虫  | :fa-times:  | 强制输出URL                             |
-| 文本专用爬虫 | :fa-times:  | 无输出                                  |
-| 文件专用爬虫 | :fa-times:  | 无输出                                  |
-| 图片专用爬虫 | :fa-times:  | 无输出                                  |
+| 一般通用爬虫 | :heavy_check_mark:  | 输出用户配置的字段名（请输出url一类的） |
+| URL专用爬虫  | :heavy_multiplication_x: | 强制输出URL                             |
+| 文本专用爬虫 | :heavy_multiplication_x:  | 无输出                                  |
+| 文件专用爬虫 | :heavy_multiplication_x:  | 无输出                                  |
+| 图片专用爬虫 | :heavy_multiplication_x:  | 无输出                                  |
 
-:fa-check: 表示有效控制 :fa-times: 表示无效控制
+:heavy_check_mark: 表示有效控制 :heavy_multiplication_x: 表示无效控制
