@@ -1,0 +1,15 @@
+{
+    "Stype": "url",
+    "url": [""],
+    "headers": {},
+    "post_data": {},
+    "field": {
+        "URL": [
+            [],
+            []
+        ]
+    },
+    "ex":[[],"",""],
+    "flow_input": "",
+    "flow_output": ""
+}

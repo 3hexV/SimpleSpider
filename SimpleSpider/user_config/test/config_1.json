@@ -1,0 +1,18 @@
+{
+    "Stype": "general",
+    "url": ["https://music.163.com/weapi/v1/resource/comments/R_SO_4_1399533630?csrf_token="],
+    "headers": {}, 
+    "post_data": {
+        "params": "CSsqdY10sUyBc1DGXTrq8hiPLQHhYqDa0wmfPTdQMUaLp3+js7Tgr43qQBVvfdVMuCNqqPn9LZdSc5MTW/fkUwACyWvY6gIH64MSSIu9Y93dT/PtxMz4E0k9sqzZzAU2A4V9ySzZ4PBflCqb6DYTm8oseBBU2EfW1qna5yf57aivHrJmVI9BjUq1VkOVTFIS",
+        "encSecKey": "3f33a636f484c5f3db73ef500c4f0423beaf78c8b0c1c66570d0ca2440afcf2bbb4f4900769e8a6eb699b5a50a2dae49ffddd06090c34a9f735848283d4979e7420e44f2b7a0e880b235b1ceebc96a1dddd302f887e3081fca16fe7cc7894b1c3fde1b4a955869d6b1cab13e480dcd62014743ab2b363bcf327c1b315d0e6694"
+    },
+    "field": {
+        "*grade":[
+            ["re", "content\":\"(.*?)\"", ""],
+            []
+        ]   
+    },
+    "ex": [[], "", ""],
+    "flow_input": "",
+    "flow_output": ""
+}

@@ -1,0 +1,15 @@
+{
+    "Stype": "f_img",
+    "url": [],
+    "headers": {},
+    "post_data": {},
+    "field": {
+        "F_IMG": [
+            [],
+            []
+        ]
+    },
+    "ex":[[],"@DN",""],
+    "flow_input": "",
+    "flow_output": ""
+}

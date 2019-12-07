@@ -1,0 +1,72 @@
+﻿; 爬虫站点 请求时配置
+[Spider RequestSite]
+; UA 配置
+; 1:使用fake_useragent随机生成
+; 2:来源于文件，随机从文件中取出一个，文件路径和文件名固定，在simple_spider下的res中，文件名文UA.txt
+UA = 2
+
+; 默认使用的网页编码 gb2312
+DefEncoding = [utf-8, big5, gbk]
+
+; 当无法从网页源码中确定 网页使用的编码 强制使用下面的编码格式
+DefEncodingNoFound = gbk
+
+; 是否缓存每次请求的网页 多用于单点测试
+CacheSitePage = true
+
+; 常见网页后缀名。当你发现缓存的网页后缀名，真实的不一致，在这里添加你，需要的后缀名
+DefPageSuffix = [html, htm, asp, shtml, php, jsp, nsp, sp]
+
+; 数据提取的配置
+[Data Extract]
+; 支持的数据提取规则的方法名 其中re代表正则
+ExtractFuncName = [xpath, css_select, re, bs4, json]
+
+; 正则多个提取结果默认 连接字符 \sp代表空格 \n 换行 \t Tab 以及其他字符 \N 表示空
+ReDefLinkSymbol = \sp
+
+; 数据处理的配置
+[Data Handle]
+; 支持的 数据处理函数
+DataHandleFuncName = [text_replace, text_sub, list_to_str, text_strip, re_handle]
+
+; 当使用处理字符串函数 去处理 字符数组时
+; 为 true时 将数组转为字符串处理
+; 为 false时 对数据中的字符串遍历处理 不转为字符串
+DataListToStr = false
+
+; 爬虫工作时 的配置
+[Spider Work]
+
+; 爬虫的线程数量 最大128 最少2
+ThreadNumber = 10
+
+; 爬虫的每线程 休眠时间 单位ms
+; 为了防止持续的 不间断的请求服务器 请务必设置 休眠时间 减缓服务器压力 默认为100ms
+ThreadSleepTime = 10
+
+; 文件专用爬虫 文件的自动识别 后缀名
+F_FILE_Spider_Suffix = [zip]
+
+; 文件专用爬虫 图片的自动识别 后缀名
+F_IMG_Spider_Suffix = [jpg]
+
+; 文件专用爬虫 图片的自动识别 后缀名
+F_URL_Spider_Suffix = [html, htm]
+
+; 文件下载时 支持的域名拼接方式
+; @DY domainName 顶级域名
+; @NP now page 当前位置url
+; @L+XX 在左边拼接XX @R+XX 在右边拼接XX
+F_FILE_DOWNLOAD_URL = @DY
+
+; 屏蔽爬虫的大部分提示信息
+NoSpiderTip = false
+
+; mongodb 的配置
+[MongoDB]
+
+mongodbHost = 127.0.0.1
+mongodbPort = 27017
+
+

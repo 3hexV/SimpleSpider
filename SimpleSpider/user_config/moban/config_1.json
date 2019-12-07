@@ -1,0 +1,27 @@
+{
+    "Stype": "general",
+    "url": ["", []],
+    "headers": {}, 
+    "post_data": {},
+    "field": {
+        "*title": [
+            ["xpath", "//td[@class=\"c_title\"]//text()"],
+            [["list_to_str", ""]]
+        ],
+        "*url": [
+            ["xpath", "//td[@class=\"content\"]//p//text()"],
+            [["list_to_str", "\n"]]
+        ],
+        "id": [
+            ["num_change", 1,300,1,0],
+            []
+        ],
+        "info": [
+            ["xpath", "//table[@class=\"mt5b10\"]//td/text()"],
+            []
+        ]
+    },
+    "ex": [[], "", ""],
+    "flow_input": "",
+    "flow_output": ""
+}

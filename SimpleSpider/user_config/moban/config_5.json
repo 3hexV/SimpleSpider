@@ -1,0 +1,15 @@
+{
+    "Stype": "f_file",
+    "url": [],
+    "headers": {},
+    "post_data": {},
+    "field": {
+        "F_FILE": [
+            [],
+            []
+        ]
+    },
+    "ex":[[],"@DN",""],
+    "flow_input": "",
+    "flow_output": ""
+}

@@ -1,0 +1,10 @@
+@
+# 新建爬虫
+newSpider(2, config_2.json)
+newSpider(1, config_1.json)
+
+# 新建爬虫流程
+newDescFlow(1, 2-1)
+
+# 数据保存方式
+save(1, mongo(res.json))
