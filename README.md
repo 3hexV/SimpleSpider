@@ -282,9 +282,9 @@ post请求参数
 `处理方式1->处理方式2->处理方式3`
 
 数据提取方式：
-	1. ["xpath","xpath规则"]
-	["xpath", "//div[@class=\"content\"]//p/text()"]
 
+	1.["xpath","xpath规则"]
+	["xpath","//div[@class=\"content\"//p/text()]"]
 	2. ["re","正则表达式","拼接规则"]
 	["re","title:(.\*?)\"\s\*author:(.\*?)\"", "[P1]--[P2]"]
 	(每一个[Pn]代表一个()匹配到结果，拼接规则为空，爬虫会依据spiderBaseConfig.ini中的ReDefLinkSymbol参数完成拼接)
@@ -296,8 +296,9 @@ post请求参数
 
 
 数据处理方式：
-	1.["text_replace", "替换前字符串", "替换后的字符串"]
-	["text_replace", "\n", " "]
+	
+	1.["text_replace","替换前字符串","替换后字符串"]
+	{"text_raplace',"\n",""}
 	将数据中的\n全部取出。如果数据为list（列表类型)，
 	那么会**根据spiderBaseConfig.ini中的DataListToStr参数**来决定，
 	是否先转为字符串，处理；还是遍历列表处理每个字符串。
